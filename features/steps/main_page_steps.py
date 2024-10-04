@@ -20,6 +20,7 @@ def search_product(context, item):
     # Search button => click
     context.driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
     sleep(5)  # wait for search results page to load
+    sleep(8)  # wait for search results page to load
 
 
 # Example with multiple variables:
