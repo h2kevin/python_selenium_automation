@@ -4,23 +4,17 @@ from time import sleep
 
 @given('Open target main page')
 def open_main(context):
-    context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main()
 
 
 @when('Click on cart icon') #homework lesson 3
 def click_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/CartLink']").click()
+    context.app.header.click_cart()
 
 # 1 update Target product seach test case homework lesson 4
 @when('Search for a {item}')
 def search_product(context, item):
-    print(item)
-    # Search field => enter tea
-    context.driver.find_element(By.ID, 'search').send_keys(item)
-    # Search button => click
-    context.driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
-    sleep(5)  # wait for search results page to load
-    sleep(8)  # wait for search results page to load
+    context.app.header.search_product(item)
 
 
 # Example with multiple variables:
